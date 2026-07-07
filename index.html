@@ -1,152 +1,190 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Feed Interativo</title>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mural de Memórias da Galera</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header>
-        <h1>Galeria Interativa</h1>
-    </header>
+    <header>
+        <h1>📸 Mural de Memórias da Galera</h1>
+        <p>Os melhores momentos do nosso ano guardados aqui!</p>
+    </header>
 
-    <main class="feed">
-        <div class="card">
-            <img src="https://picsum.photos/400/300?random=1" alt="Imagem Linda 1" class="card-img">
-            <div class="card-content">
-                <h3>Aventura na Natureza</h3>
-                <p>Explore o mundo e descubra paisagens incríveis.</p>
-                <div class="interactions">
-                    <button class="like-btn">❤️ Curtir (<span class="like-count">0</span>)</button>
-                </div>
-            </div>
-        </div>
+    <main class="mural">
+        <article class="card-memoria">
+            <img src="https://picsum.photos/id/10/400/300" alt="Viagem da galera">
+            <div class="conteúdo">
+                <h3>Nossa Viagem Inesquecível</h3>
+                <p>Aquele fim de semana na praia que ninguém vai esquecer. Sol, risadas e muita história pra contar!</p>
+                <div class="interacao">
+                    <button class="btn-like">❤️ Curtir</button>
+                    <span class="contador-likes">0 curtidas</span>
+                </div>
+            </div>
+        </article>
 
-        <div class="card">
-            <img src="https://picsum.photos/400/300?random=2" alt="Imagem Linda 2" class="card-img">
-            <div class="card-content">
-                <h3>Luzes da Cidade</h3>
-                <p>A energia urbana que nunca dorme durante a noite.</p>
-                <div class="interactions">
-                    <button class="like-btn">❤️ Curtir (<span class="like-count">0</span>)</button>
-                </div>
-            </div>
-        </div>
-    </main>
+        <article class="card-memoria">
+            <img src="https://picsum.photos/id/20/400/300" alt="Trabalho em grupo">
+            <div class="conteúdo">
+                <h3>Virando a noite no trabalho</h3>
+                <p>Quem diria que um trabalho de biologia ia render tanta pizza e desespero de última hora?</p>
+                <div class="interacao">
+                    <button class="btn-like">❤️ Curtir</button>
+                    <span class="contador-likes">0 curtidas</span>
+                </div>
+            </div>
+        </article>
 
-    <script src="script.js"></script>
+        <article class="card-memoria">
+            <img src="https://picsum.photos/id/30/400/300" alt="Festa de aniversário">
+            <div class="conteúdo">
+                <h3>Aniversário do Lucas</h3>
+                <p>O bolo caiu no chão? Sim. Mas o que vale é a intenção e as risadas que demos depois.</p>
+                <div class="interacao">
+                    <button class="btn-like">❤️ Curtir</button>
+                    <span class="contador-likes">0 curtidas</span>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <script src="script.js"></script>
 </body>
-</html>/* Reset básico para zerar margens padrão */
+</html>/* Configurações Globais */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-    background-color: #f0f2f5;
-    color: #333;
-    padding: 20px;
+    background-color: #f0f2f5;
+    color: #333;
+    padding: 20px;
 }
 
+/* Cabeçalho */
 header {
-    text-align: center;
-    margin-bottom: 30px;
+    text-align: center;
+    margin-bottom: 40px;
 }
 
-/* Container dos cards */
-.feed {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 25px; /* Espaçamento entre os cards */
+header h1 {
+    color: #4a148c;
+    margin-bottom: 10px;
 }
 
-/* Estrutura do Card */
-.card {
-    background-color: #fff;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
-    width: 100%;
-    overflow: hidden; /* Garante que a imagem respeite as bordas arredondadas */
-    transition: transform 0.2s;
+/* Container do Mural */
+.mural {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px; /* Espaçamento entre os cards */
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.card:hover {
-    transform: translateY(-5px); /* Efeito sutil ao passar o mouse */
+/* Card Individual */
+.card-memoria {
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden; /* Garante que a imagem siga a curva da borda */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
 }
 
-/* Estilização da Imagem */
-.card-img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover; /* Faz a imagem preencher o espaço sem distorcer */
+.card-memoria:hover {
+    transform: translateY(-5px); /* Efeito flutuante ao passar o mouse */
 }
 
-/* Espaçamentos internos do texto */
-.card-content {
-    padding: 20px;
+/* Imagens */
+.card-memoria img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover; /* Ajusta a imagem sem distorcer */
 }
 
-.card-content h3 {
-    margin-bottom: 10px;
+/* Conteúdo do Card */
+.conteúdo {
+    padding: 20px; /* Espaçamento interno */
 }
 
-.card-content p {
-    color: #666;
-    margin-bottom: 15px;
-    line-height: 1.4;
+.conteúdo h3 {
+    margin-bottom: 10px;
+    color: #1a1a1a;
 }
 
-/* Botão de Curtir */
-.like-btn {
-    background-color: #e4e6eb;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 20px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background 0.2s, color 0.2s;
+.conteúdo p {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.5;
+    margin-bottom: 20px;
 }
 
-/* Classe que o JavaScript vai adicionar ao curtir */
-.like-btn.liked {
-    background-color: #ff4757;
-    color: white;
+/* Área de Interação (Botão e Contador) */
+.interacao {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn-like {
+    background-color: #e1bee7;
+    color: #4a148c;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.2s;
+}
+
+.btn-like:hover {
+    background-color: #ce93d8;
+}
+
+/* Classe dinâmica quando o botão for clicado */
+.btn-like.curtido {
+    background-color: #e91e63;
+    color: white;
+}
+
+.contador-likes {
+    font-size: 14px;
+    font-weight: 600;
+    color: #555;
 }// 1. Seleciona todos os botões de curtir da página
-const botoesCurtir = document.querySelectorAll('.like-btn');
+const botoesLike = document.querySelectorAll('.btn-like');
 
-// 2. Passa por cada botão usando o forEach (para múltiplos elementos)
-botoesCurtir.forEach((botao) => {
-    
-    // Variável interna para controlar se ESSE botão específico foi curtido
-    let curtido = false;
-    
-    // Seleciona o número do contador que está dentro DESSE botão específico
-    const contadorTexto = botao.querySelector('.like-count');
+// 2. Loop para aplicar o evento de clique em cada um dos botões encontrados
+botoesLike.forEach((botao) => {
+    
+    // Criamos uma variável de controle de cliques interna para cada botão
+    let totalLikes = 0;
+    let jaCurtiu = false;
 
-    // 3. Adiciona o evento de clique para o botão atual
-    botao.addEventListener('click', () => {
-        // Pega o número atual de curtidas e transforma em número inteiro
-        let curtidasAtuais = parseInt(contadorTexto.textContent);
+    botao.addEventListener('click', () => {
+        // Encontra o contador de texto que está logo ao lado do botão clicado
+        const contadorTexto = botao.nextElementSibling;
 
-        if (!curtido) {
-            // Lógica para CURTIR
-            curtidasAtuais++;
-            botao.classList.add('liked'); // Muda a cor para vermelho via CSS
-            curtido = true;
-        } else {
-            // Lógica para DESCURTIR
-            curtidasAtuais--;
-            botao.classList.remove('liked'); // Volta para a cor padrão
-            curtido = false;
-        }
+        if (!jaCurtiu) {
+            // Se não curtiu: soma 1, muda o estado e adiciona a classe visual
+            totalLikes++;
+            jaCurtiu = true;
+            botao.classList.add('curtido');
+            botao.innerText = '❤️ Curtido!';
+        } else {
+            // Se clicar de novo: subtrai 1 (descurtir)
+            totalLikes--;
+            jaCurtiu = false;
+            botao.classList.remove('curtido');
+            botao.innerText = '❤️ Curtir';
+        }
 
-        // Atualiza o texto do contador na tela
-        contadorTexto.textContent = curtidasAtuais;
-    });
+        // Atualiza o texto na tela de forma dinâmica
+        contadorTexto.innerText = `${totalLikes} ${totalLikes === 1 ? 'curtida' : 'curtidas'}`;
+    });
 });
